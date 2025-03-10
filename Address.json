@@ -1,1 +1,144 @@
-
+{
+    "id": "Address:v1",
+    "baseUrl": "https://exacttargetapis.com/address/v1",
+    "kind": "discovery#restDescription",
+    "name": "Address",
+    "version": "v1",
+    "title": "Address Service",
+    "description": "Provides address functionality",
+    "protocol": "rest",
+    "basePath": "address/v1",
+    "rootUrl": "https://exacttargetapis.com",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://code.exacttarget.com",
+    "methods": {
+        "discovery": {
+            "id": "Address.discovery",
+            "path": "rest",
+            "httpMethod": "GET",
+            "description": "Returns discovery information."
+        }
+    },
+    "schemas": {
+        "emailValidationRequest": {
+            "id": "EmailValidationRequest",
+            "type": "Object",
+            "properties": {
+                "email": {
+                    "required": true,
+                    "type": "String",
+                    "allowAdditionalProperties": false
+                },
+                "validators": {
+                    "required": true,
+                    "type": "Array",
+                    "items": [
+                        {
+                            "id": "EmailValidators",
+                            "type": "String",
+                            "allowAdditionalProperties": false,
+                            "enum": [
+                                "None",
+                                "SyntaxValidator",
+                                "ListDetectiveValidator",
+                                "GlobalUnsubValidator",
+                                "MXValidator",
+                                "ContactValidator"
+                            ]
+                        }
+                    ],
+                    "allowAdditionalProperties": false
+                }
+            },
+            "allowAdditionalProperties": false
+        },
+        "emailValidationResponse": {
+            "id": "EmailValidationResponse",
+            "type": "Object",
+            "properties": {
+                "email": {
+                    "required": true,
+                    "type": "String",
+                    "allowAdditionalProperties": false
+                },
+                "valid": {
+                    "required": true,
+                    "type": "Boolean",
+                    "allowAdditionalProperties": false
+                }
+            },
+            "allowAdditionalProperties": false
+        },
+        "phoneValidationRequest": {
+            "id": "PhoneValidationRequest",
+            "type": "Object",
+            "properties": {
+                "phones": {
+                    "required": true,
+                    "type": "Array",
+                    "items": [
+                        {
+                            "id": "PhoneNumber",
+                            "type": "Object",
+                            "properties": {
+                                "phone": {
+                                    "required": true,
+                                    "type": "String",
+                                    "allowAdditionalProperties": false
+                                },
+                                "countrycode": {
+                                    "required": true,
+                                    "type": "String",
+                                    "allowAdditionalProperties": false
+                                }
+                            },
+                            "allowAdditionalProperties": false
+                        }
+                    ],
+                    "allowAdditionalProperties": false
+                }
+            },
+            "allowAdditionalProperties": false
+        },
+        "phoneValidationResponse": {
+            "id": "PhoneValidationResponse",
+            "type": "Object",
+            "properties": {},
+            "allowAdditionalProperties": false
+        }
+    },
+    "resources": {
+        "emailValidation": {
+            "methods": {
+                "validateEmail": {
+                    "id": "Address.emailValidation.validateEmail",
+                    "path": "validateemail",
+                    "httpMethod": "POST",
+                    "description": "",
+                    "request": {
+                        "$ref": "EmailValidationRequest"
+                    },
+                    "response": {
+                        "$ref": "EmailValidationResponse"
+                    }
+                }
+            }
+        },
+        "phoneValidation": {
+            "methods": {
+                "validatePhone": {
+                    "id": "Address.phoneValidation.validatePhone",
+                    "path": "validatePhone",
+                    "httpMethod": "POST",
+                    "description": "Validate one or more phone numbers.",
+                    "request": {
+                        "$ref": "PhoneValidationRequest"
+                    },
+                    "response": {
+                        "$ref": "PhoneValidationResponse"
+                    }
+                }
+            }
+        }
+    }
+}
