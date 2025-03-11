@@ -1,0 +1,1 @@
+{"methods":{"discovery":{"path":"rest","httpMethod":"get","description":"Returns discovery document","parameters":{}},"PostEmailPreviewSend":{"path":"emails/preview/send","httpMethod":"post","description":"Sends a preview of an email.","parameters":{}}}}
