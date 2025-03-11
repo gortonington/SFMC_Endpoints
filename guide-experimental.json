@@ -1,1 +1,1 @@
-{"documentation":"https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/error-handling.htm","errorcode":0,"message":"Not Authorized"}
+{"methods":{"discovery":{"path":"rest","httpMethod":"get","description":"Returns discovery document","parameters":{}},"PostEmailPreviewSend":{"path":"emails/preview/send","httpMethod":"post","description":"Sends a preview of an email.","parameters":{}}}}
